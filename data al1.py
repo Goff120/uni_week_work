@@ -90,6 +90,19 @@ def reverse():
 
     print(new_data)
 
+def dup_letter(string):
+    stak = Stack(len(string))
+    for letter in string:
+        if stak.head != -1 and stak.peek_el() == letter:
+            stak.pop_el()
+        else:
+            stak.push_el(letter)
+    out = ""
+    for i in range(stak.head + 1):
+        out += stak.data[i]
+    print(out)
+
+
 
 if __name__ == "__main__":
     print("=== Testing Queue ===")
@@ -122,3 +135,8 @@ if __name__ == "__main__":
 
     print(q2.is_empty()) #f
     print(q2.is_full()) #t
+
+
+    dup_letter("abbccd")
+    dup_letter("dsallasg")
+    dup_letter("abccbadd")
